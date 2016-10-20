@@ -4,17 +4,17 @@ $(function() {
 
   var calculate = function(side1, side2, side3) {
     if (!side1 || !side2 || !side3) {
-      alert("Please enter all 3 sides");
+      alert("Please enter all 3 sides, if you entered zero that is not a length");
     } else if (
       (side1 + side2 <= side3) ||
       (side1 + side3 <= side2) ||
       (side2 + side3 <= side1)
     ){
-      triangleType = "notTriangle";
+      $("#triangleContent").text("This is not a triangle.");
     } else if (
       (side1 === side2 && side1 === side3)
     ) {
-      triangleType = "equilateral";
+      $("#triangleContent").text("Your triangle is equilateral");
     } else if (
       (side1 === side2 && side1 !== side3) ||
       (side1 === side2 && side2 !== side3) ||
@@ -23,12 +23,12 @@ $(function() {
       (side2 === side3 && side2 !== side1) ||
       (side2 === side3 && side3 !== side1)
     ){
-      triangleType = "isosceles";
+      $("#triangleContent").text("Your triangle is isosceles");
     } else if (
       (side1 !== side2 !== side3) &&
       (side1 !== side3)
     ) {
-      triangleType = "scalene";
+      $("#triangleContent").text("Your triangle is scalene");
     }
   }
 
@@ -40,16 +40,6 @@ $(function() {
     var inputSide3 = parseInt($("input#side3").val());
 
     calculate(inputSide1, inputSide2, inputSide3);
-
-    if (triangleType === "notTriangle") {
-      $("#triangleContent").text("This is not a triangle.");
-    } else if (triangleType === "equilateral") {
-      $("#triangleContent").text("Your triangle is equilateral");
-    } else if (triangleType === "isosceles") {
-      $("#triangleContent").text("Your triangle is isosceles");
-    } else if (triangleType === "scalene") {
-      $("#triangleContent").text("Your triangle is scalene");
-    }
 
     event.preventDefault();
   })
