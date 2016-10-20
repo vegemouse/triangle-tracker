@@ -35,9 +35,9 @@ $(function() {
  // begin UI logic
 
   $("form#tracker").submit(function(event) {
-    var inputSide1 = parseInt($("input#side1").val());
-    var inputSide2 = parseInt($("input#side2").val());
-    var inputSide3 = parseInt($("input#side3").val());
+    var inputSide1 = parseFloat($("input#side1").val());
+    var inputSide2 = parseFloat($("input#side2").val());
+    var inputSide3 = parseFloat($("input#side3").val());
 
     calculate(inputSide1, inputSide2, inputSide3);
 
