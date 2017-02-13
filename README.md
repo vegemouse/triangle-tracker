@@ -1,4 +1,4 @@
-# Calc App
+# Triangle Tracker
 ### by Max Cady and Suzi Rubino
 
 ## Description
